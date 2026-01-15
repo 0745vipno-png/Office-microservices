@@ -32,3 +32,9 @@ It is designed to operate independently and produce human-readable artifacts.
 
 ## Safety Notes
 - <explicit boundaries>
+
+
+This repository also includes example orchestration scripts
+demonstrating how multiple tools may be invoked together.
+These scripts are optional and provided for reference only.
+
