@@ -5,9 +5,9 @@ This module performs <one clear responsibility>.
 It is designed to operate independently and produce human-readable artifacts.
 
 ## What This Module Does
-- Reads: <what inputs>
-- Writes: <what outputs>
-- Modifies: None / Explicitly stated if any
+- Reads: <explicit inputs>
+- Writes: <explicit outputs>
+- Modifies: None (This module never modifies existing data)
 
 ## What This Module Does NOT Do
 - No automatic remediation
@@ -33,8 +33,9 @@ It is designed to operate independently and produce human-readable artifacts.
 ## Safety Notes
 - <explicit boundaries>
 
+---
 
 This repository also includes example orchestration scripts
 demonstrating how multiple tools may be invoked together.
-These scripts are optional and provided for reference only.
-
+These scripts are provided for reference only and do not represent
+a required or recommended execution pattern.
