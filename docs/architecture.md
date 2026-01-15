@@ -28,6 +28,9 @@ Each layer operates independently and communicates only through human-readable a
 - No AI-driven decisions
 
 
+## System Flow & Responsibility Boundaries
+
+```text
 ┌─────────────────────────────────────────────┐
 │                👤 人類決策層                │
 │                                             │
@@ -56,16 +59,9 @@ Each layer operates independently and communicates only through human-readable a
 │        Execution Plane（執行層）             │
 │                                             │
 │  Daily Activity Snapshot                     │
-│  - 今天有沒有檔案活動                        │
-│                                             │
 │  Weekly Activity Report                      │
-│  - 最近一週的活動分佈                        │
-│                                             │
 │  Monthly Activity Report                     │
-│  - 指定月份的長期行為輪廓                    │
-│                                             │
 │  Folder Health Report                        │
-│  - 結構風險（空資料夾 / 大檔 / 久未修改）    │
 │                                             │
 │  （全部唯讀、不互相依賴）                    │
 └─────────────────────┬───────────────────────┘
@@ -75,9 +71,8 @@ Each layer operates independently and communicates only through human-readable a
 │        Boundary / I-O Layer（邊界層）        │
 │                                             │
 │  Report Archiver                             │
-│  - 從 STDIN 接收文字                         │
-│  - 不解析、不理解內容                       │
-│  - 將輸出轉為不可變歷史紀錄                  │
+│  - STDIN only                               │
+│  - No parsing / No inference                │
 │                                             │
 │  reports/                                   │
 │    ├─ daily_snapshot/                       │
@@ -91,28 +86,7 @@ Each layer operates independently and communicates only through human-readable a
 │        Observation Layer（觀察層）           │
 │                                             │
 │  Report Inventory                            │
-│  - 掃描 reports 目錄                         │
-│  - 列出「實際存在的報告事實」                │
-│  - 不判斷完整性、不補跑                     │
+│  - Lists existing artifacts only             │
+│  - No completeness checks                    │
 └─────────────────────────────────────────────┘
 
-
-------------------------------------------------------------------------------------------------------------------------
-
-
-[檔案系統狀態]
-        │
-        ▼
-[Daily / Weekly / Monthly / Health]
-        │  （STDOUT）
-        ▼
-[Report Archiver]
-        │
-        ▼
-[不可變報告檔案（reports/*）]
-        │
-        ▼
-[Report Inventory]
-        │
-        ▼
-[👤 人類閱讀與判斷]
