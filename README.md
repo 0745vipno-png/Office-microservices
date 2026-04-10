@@ -1,4 +1,7 @@
+#Objective: "The design goal of my system is not efficiency, but to fix responsibility and evidence in the right place."
+
 # Module Name
+
 
 ## Purpose
 
