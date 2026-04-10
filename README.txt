@@ -1,5 +1,7 @@
 # Office Utility CLI Toolkit
 
+# Objective: "The design goal of my system is not efficiency, but to fix responsibility and evidence in the right place."
+
 一組一次性執行、只讀、以「人類可讀報告」為核心的辦公室輔助 CLI 工具集合。
 
 本專案專注於將日常工作中可觀測的事實（檔案活動、資料夾狀態）
